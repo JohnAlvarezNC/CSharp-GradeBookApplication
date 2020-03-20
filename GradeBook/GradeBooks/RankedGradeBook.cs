@@ -13,14 +13,15 @@ namespace GradeBook.GradeBooks
         }
         public override char GetLetterGrade(double averageGrade)
         {
+
             List<double> grades = new List<double>();
             grades.Add(averageGrade);
-            if(base.Students.Count>=5)
+            if (base.Students.Count >= 5)
             {
-                
-                foreach (Student students in base.Students.OrderByDescending(x => x.AverageGrade))
-                {
-                    
+                base.Students.OrderByDescending(x => x.AverageGrade);
+               // foreach (Student students)
+                //{
+
                     if (grades.Count <= (base.Students.Count * 0.20))
                     {
                         return 'A';
@@ -42,16 +43,20 @@ namespace GradeBook.GradeBooks
                         return 'F';
                     }
 
-                }
 
-            }
+
+
+              // }
+
+        }
             else
             {
                 throw new InvalidOperationException("Ranked-grading requires minimum of 5 students to work");
-               
+
             }
             return 'F';
 
         }
+    }   
     }
 }
