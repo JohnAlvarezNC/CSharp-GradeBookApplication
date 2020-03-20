@@ -27,8 +27,9 @@ namespace GradeBook.GradeBooks
             }
             else
             {
-                return 'F';
+                throw new InvalidOperationException("Ranked-grading requires minimum of 5 students to work");
             }
+            
         }
     }
 }
